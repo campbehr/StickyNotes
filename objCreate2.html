@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body {
+            background-color: lightsteelblue;
+        }
+
+        .note-sect {
+            width: auto;
+            height: 400px;
+        }
+
+        .sticky-note {
+            float: left;
+            width: 300px;
+            height: 350px;
+            margin: 20px;
+            background-color: lightsalmon;
+            border-radius: 10px;
+            border: darkgray;
+            border-width: 1px;
+        }
+
+        .list {
+            width: auto;
+            height: 80%;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="note-sect">
+
+    </div>
+
+    <div class="plus-btn-sect">
+        <button class="plus-btn">Add Note</button>
+    </div>
+
+</body>
+<script>
+
+    const plusBtn = document.querySelector('.plus-btn')
+    const noteSect = document.querySelector('.note-sect')
+
+    let stickyNote, list, input, submit  
+
+    createEl = (event) =>{
+   
+        stickyNote = document.createElement('div')     
+        stickyNote.setAttribute('class', 'sticky-note')
+
+        list = document.createElement('ul')
+        list.setAttribute('class', 'list')
+
+        input = document.createElement('input')
+        input.setAttribute('class', 'input')
+        
+        submit = document.createElement('button')
+        submit.setAttribute('class', 'submit')
+        submit.textContent = 'Submit'
+        
+        submit.addEventListener('click', function(){
+            addTask()
+        })
+
+        
+    }
+
+
+    addStickyNote = () =>{
+        
+        stickyNote.appendChild(list)
+        
+        stickyNote.appendChild(input)
+
+        stickyNote.appendChild(submit)
+        
+        noteSect.appendChild(stickyNote) 
+        
+    }
+    
+    
+    
+    addTask = () => {
+        var taskArr = []
+
+        let listItem = document.createElement('li')
+
+        listItem.setAttribute('class', 'list-item')
+
+        taskArr.push(input.value)
+
+        input.value = ''
+
+        taskArr.forEach(function(task){
+            listItem.textContent = task
+        })
+
+        list.append(listItem) 
+       
+    }
+    
+    plusBtn.addEventListener('click', function(){
+        createEl()
+        addStickyNote()
+    })
+    
+
+</script>
+</html>
+
+
+
+
+
+
+
