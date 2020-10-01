@@ -136,6 +136,7 @@ li {
   position: relative;
   height: 80px;
   width: 80px;
+  margin-bottom: 10px;
   background-color: #c0f1ff;
   border-style: solid;
   border-radius: 40px;
